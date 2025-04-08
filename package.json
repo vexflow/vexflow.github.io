@@ -1,0 +1,18 @@
+{
+  "name": "vexflow.github.io",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Vexflow Website",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy --input=src --output=_site",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve --port=9876",
+    "start": "npx @11ty/eleventy --serve --port=9876"
+  },
+  "keywords": [],
+  "author": "vexflow",
+  "license": "MIT",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
