@@ -3,24 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vexflow 5</title>
+    <title></title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js" defer></script>
     <style>
-        main {
-            /* font-family: Arial, sans-serif; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            /* background-color: #f5f5f5; */
-        }
-        
-        h1 {
-            font-size: 3rem;
-            text-align: center;
-        }
+      /* Position the main normally if you're not using the iframe */
+      main {
+        padding: 0;
+        width: 100vw;
+        height: 100vh; /* 60px is the navbar height */
+        z-index: 1;
+}      
+/* Full-screen iframe styling */
+      #full-screen-iframe {
+        width: 100vw;
+        height: 100%;
+        border: none;
+      }
     </style>
   </head>
   <body>
@@ -53,24 +52,11 @@
   </nav>
     <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
     <main>
-      <style>
-    main {
-        /* font-family: Arial, sans-serif; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        /* background-color: #f5f5f5; */
-    }
-    
-    h1 {
-        font-size: 3rem;
-        text-align: center;
-    }
-</style>
-<h1>Vexflow 5</h1>
-
+      
+        <!-- If an "iframe" variable is passed in,
+             load the provided URL in an iframe that fills the viewport -->
+        <iframe id="full-screen-iframe" src="https://vexflow.github.io/vexflow-docs/" frameborder="0"></iframe>
+      
     </main>
   </body>
 </html>
