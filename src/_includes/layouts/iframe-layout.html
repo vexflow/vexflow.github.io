@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <style>
+      main {
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+}      
+      #full-screen-iframe {
+        width: 100vw;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "partials/nav.html" %}
+    {% include "partials/overlay.html" %}
+    <main>
+        <iframe id="full-screen-iframe" src="{{ link }}" frameborder="0"></iframe>
+    </main>
+  </body>
+</html>
