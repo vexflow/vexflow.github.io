@@ -1,0 +1,27 @@
+  <nav id="navbar">
+    <!-- contains logo and hamburger menu (only shown when screen is small enough) -->
+    <div id="nav-branding">
+      <a href="index.html" class="logo" aria-label="VexFlow Home">
+        <img src="/images/apple-touch-icon.png" alt="VexFlow Icon" height="40">
+      </a>
+      <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open sidebar" aria-expanded="false" aria-controls="navbar">
+        <!-- Hamburger menu -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"><path d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"/></svg>
+      </button>    
+    </div>
+    <!-- Navigation links that are shown on the right of the nav bar on larger screens and in sidebar on smaller screens -->
+    <ul id="nav-links">
+      <li>
+        <button id="close-sidebar-button" onclick="closeSidebar()" aria-label="close sidebar">
+          <!-- X -->
+          <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"><path d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"/></svg>
+        </button>
+      </li>
+      <!-- Slightly hacked. Mobile-only allows the home link to only show when in the sidebar. -->
+      <li class="mobile-only"><a class="active-link" aria-current="page" href="index.html">Home</a></li>
+      <li><a href="#">Documentation</a></li>
+      <li><a href="#">Examples</a></li>
+      <li><a href="#">Sandbox</a></li>
+      <li><a class="accent-link" href="#">Source Code</a></li>
+    </ul>
+  </nav>

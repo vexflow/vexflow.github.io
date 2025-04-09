@@ -1,0 +1,198 @@
+/* light mode */
+:root {
+  --primary-color: #f5f5f5;
+  --hover-color: #787fb3;
+  --accent-color: #88beff;
+  --text-color: #232121;
+}
+/* dark mode */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #1a1a1a;
+    --hover-color: #9aa0c7;
+    --accent-color: #5aa8ff;
+    --text-color: #f5f5f5;
+  }
+} */
+/* reset all elements */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+color: var(--text-color);
+  scroll-behavior: smooth; /*For bookmark links*/
+}
+
+body{
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--primary-color);
+}
+
+main{
+  padding: min(5em, 7%);
+}
+
+main p{
+  margin-top: .35em;
+}
+
+/* create fixed position nav. z-index included here for overlay to not render over it. 
+This only happens when position is set to fixed for some reason. */
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 11;
+  background-color: var(--primary-color);
+  /* border-bottom: 1px solid var(--hover-color); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* gets rid of - before links */
+nav ul{
+  list-style: none;
+  display: flex;
+}
+
+nav li{
+  display: flex;
+}
+
+/* styles for open/close sidebar svgs */
+nav button svg {
+  fill: var(--text-color);
+  transition: fill 0.2s;
+}
+
+nav button:hover svg {
+  fill: var(--hover-color);
+}
+
+nav a{
+  display: flex;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 1em 2em;
+  transition: color 150ms ease;
+}
+
+nav a:hover{
+  color: var(--hover-color);
+}
+
+/* useful for whatever page currently on */
+nav a.active-link{
+  border-bottom: 2px solid var(--text-color);
+}
+
+/* anchors that you want to be emphasized */
+nav a.accent-link{
+  background-color: var(--accent-color);
+}
+
+nav .logo {
+  display: flex; 
+  /* align-items: center; */
+  height: 100%;        
+  width: auto;         
+  flex: 0 0 auto;      
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0 1em;    
+}
+
+#nav-branding {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+}
+
+#open-sidebar-button{
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+#close-sidebar-button{
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+}
+
+#overlay{
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: none;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display:flex;
+}
+
+@media screen and (max-width: 800px) {
+  #open-sidebar-button, #close-sidebar-button{
+    display: block;
+  }
+  #nav-branding{
+    width: 100%;
+  }
+  #nav-links{
+    background: var(--primary-color);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index: 10;
+    border-left: 1px solid var(--hover-color);
+    transition: right 300ms ease-in-out;
+  }
+
+  #nav-links.show{
+    right: 0;
+  }
+
+  nav ul{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  nav a{
+    width: 100%;
+    padding-left: 2.5em;
+  }
+
+  nav a.active-link{
+    border-bottom: none;
+  }
+
+  .mobile-only{
+    display: flex;
+  }
+  
+  .desktop-only {
+    display:none;
+  }
+}
+
+
