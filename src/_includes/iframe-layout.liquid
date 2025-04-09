@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <style>
+      /* Position the main normally if you're not using the iframe */
+      main {
+        padding: 0;
+        width: 100vw;
+        height: 100vh; /* 60px is the navbar height */
+        z-index: 1;
+}      
+/* Full-screen iframe styling */
+      #full-screen-iframe {
+        width: 100vw;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "nav.liquid" %}
+    {% include "overlay.liquid" %}
+    <main>
+      {% if iframe %}
+        <!-- If an "iframe" variable is passed in,
+             load the provided URL in an iframe that fills the viewport -->
+        <iframe id="full-screen-iframe" src="{{ iframe }}" frameborder="0"></iframe>
+      {% else %}
+        <!-- Otherwise, just show the normal content -->
+        {{ content }}
+      {% endif %}
+    </main>
+  </body>
+</html>
