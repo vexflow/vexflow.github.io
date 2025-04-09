@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js" defer></script>
     <style>
-      /* Position the main normally if you're not using the iframe */
       main {
         padding: 0;
         width: 100vw;
-        height: 100vh; /* 60px is the navbar height */
+        height: 100vh;
         z-index: 1;
 }      
-/* Full-screen iframe styling */
       #full-screen-iframe {
         width: 100vw;
         height: 100%;
@@ -23,7 +21,9 @@
     </style>
   </head>
   <body>
-      <nav id="navbar">
+    
+
+<nav id="navbar">
     <!-- contains logo and hamburger menu (only shown when screen is small enough) -->
     <div id="nav-branding">
       <a href="/" class="logo" aria-label="VexFlow Home">
@@ -37,6 +37,7 @@
     <!-- Navigation links that are shown on the right of the nav bar on larger screens and in sidebar on smaller screens -->
     <ul id="nav-links">
       <li>
+        <!-- Only shown when sidebar is open -->
         <button id="close-sidebar-button" onclick="closeSidebar()" aria-label="close sidebar">
           <!-- X -->
           <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"><path d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"/></svg>
@@ -44,19 +45,48 @@
       </li>
       <!-- Slightly hacked. Mobile-only allows the home link to only show when in the sidebar. -->
       <li class="mobile-only"><a class="active-link" aria-current="page" href="index.html">Home</a></li>
-      <li><a href="/documentation/">Documentation</a></li>
-      <li><a href="/examples/">Examples</a></li>
-      <li><a href="/sandbox/">Sandbox</a></li>
-      <li><a class="accent-link" href="https://github.com/vexflow/vexflow" target="_blank">Github Repo</a></li>
+
+      
+        <li>
+          <a 
+            href="/docs/" 
+            class=""
+            aria-current=""
+          >
+            Documentation
+          </a>
+        </li>
+      
+        <li>
+          <a 
+            href="/examples/" 
+            class=""
+            aria-current=""
+          >
+            Examples
+          </a>
+        </li>
+      
+        <li>
+          <a 
+            href="/sandbox/" 
+            class="active-link"
+            aria-current="page"
+          >
+            Sandbox
+          </a>
+        </li>
+      
+      <li>
+        <a class="accent-link" href="https://github.com/vexflow/vexflow" target="_blank">
+          Source Code
+        </a>
+      </li>
     </ul>
   </nav>
     <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
     <main>
-      
-        <!-- If an "iframe" variable is passed in,
-             load the provided URL in an iframe that fills the viewport -->
         <iframe id="full-screen-iframe" src="https://vexflow.github.io/vexflow-sandbox/?ver=5&file=hello&dev=1" frameborder="0"></iframe>
-      
     </main>
   </body>
 </html>
