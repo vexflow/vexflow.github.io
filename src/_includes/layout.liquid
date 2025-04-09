@@ -7,27 +7,35 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/script.js" defer></script>
     <style>
-        main {
-            /* font-family: Arial, sans-serif; */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            /* background-color: #f5f5f5; */
-        }
-        
-        h1 {
-            font-size: 3rem;
-            text-align: center;
-        }
+      /* Position the main normally if you're not using the iframe */
+      main {
+        position: relative;
+        z-index: 1; /* Lower than navbar and overlay */
+      }
+      /* Full-screen iframe styling */
+      #full-screen-iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        z-index: 0; /* Behind the overlay and navbar */
+      }
     </style>
   </head>
   <body>
     {% include "nav.liquid" %}
     {% include "overlay.liquid" %}
     <main>
-      {{ content }}
+      {% if iframe %}
+        <!-- If an "iframe" variable is passed in,
+             load the provided URL in an iframe that fills the viewport -->
+        <iframe id="full-screen-iframe" src="{{ iframe }}"></iframe>
+      {% else %}
+        <!-- Otherwise, just show the normal content -->
+        {{ content }}
+      {% endif %}
     </main>
   </body>
 </html>
